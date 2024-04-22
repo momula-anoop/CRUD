@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit($event)" class="container">
+    <!-- Add container class for Bootstrap's container layout -->
+    <h4>Employee Details</h4>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        [(ngModel)]="user.name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="designation">Designation:</label>
+      <select
+        class="form-control"
+        id="designation"
+        name="designation"
+        [(ngModel)]="user.designation"
+        required
+      >
+        <option selected value="undefined">Select</option>
+        <option
+          *ngFor="let designationOption of designations"
+          [value]="designationOption"
+        >
+          {{ designationOption }}
+        </option>
+      </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <app-employee-list
+    [employeeList]="employeeList"
+    (action)="performAction($event)"
+  ></app-employee-list>
+  

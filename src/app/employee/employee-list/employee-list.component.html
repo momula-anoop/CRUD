@@ -1,0 +1,43 @@
+<!-- task-list.component.html -->
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Designation</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeList">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.designation }}</td>
+          <td class="text-center">
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <button
+                  class="btn btn-danger"
+                  (click)="deleteAction(employee.id)"
+                >
+                  Delete
+                </button>
+              </div>
+              <div class="col-auto">
+                <button
+                  class="btn btn-secondary"
+                  (click)="editAction(employee.id)"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
